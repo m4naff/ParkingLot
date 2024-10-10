@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 /**
  * Represents an entity named {@link ParkingAreaEntity} for parking area.
  */
@@ -50,4 +52,11 @@ public class ParkingAreaEntity extends BaseEntity {
             referencedColumnName = "ID"
     )
     private PriceListEntity priceListEntity;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE,
+            mappedBy = "parkingAreaEntity"
+    )
+    private List<ParkEntity> parkEntities;
 }

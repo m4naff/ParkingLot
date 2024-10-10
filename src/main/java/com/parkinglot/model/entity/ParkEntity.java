@@ -1,6 +1,7 @@
 package com.parkinglot.model.entity;
 
 import com.parkinglot.common.model.entity.BaseEntity;
+import com.parkinglot.model.enums.ParkStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -47,5 +48,17 @@ public class ParkEntity extends BaseEntity {
     )
     private ParkingAreaEntity parkingAreaEntity;
 
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "VEHICLE_ID",
+            referencedColumnName = "ID"
+    )
+    private VehicleEntity vehicleEntity;
+
+    @Column(name = "PARK_STATUS")
+    @Enumerated(EnumType.STRING)
+    private ParkStatus parkStatus;
 
 }

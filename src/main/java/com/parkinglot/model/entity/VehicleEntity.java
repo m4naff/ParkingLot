@@ -2,6 +2,7 @@ package com.parkinglot.model.entity;
 
 import com.parkinglot.common.model.entity.BaseEntity;
 import com.parkinglot.model.enums.VehicleType;
+import com.parkinglot.security.model.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -41,4 +42,13 @@ public class VehicleEntity extends BaseEntity {
             mappedBy = "vehicleEntity"
     )
     private List<ParkEntity> parkEntities;
+
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "USER_ID",
+            referencedColumnName = "ID"
+    )
+    private UserEntity userEntity;
 }
