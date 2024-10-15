@@ -1,6 +1,6 @@
 package com.parkinglot.service.auth.impl;
 
-import com.parkinglot.repository.UserRepository;
+import com.parkinglot.security.repository.UserRepository;
 import com.parkinglot.security.model.entity.UserEntity;
 import com.parkinglot.service.auth.UserService;
 import lombok.RequiredArgsConstructor;

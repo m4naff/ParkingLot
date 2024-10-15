@@ -1,4 +1,4 @@
-package com.parkinglot.model.enums;
+package com.parkinglot.security.model.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

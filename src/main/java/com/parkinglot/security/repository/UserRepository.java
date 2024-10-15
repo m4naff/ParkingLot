@@ -1,4 +1,4 @@
-package com.parkinglot.repository;
+package com.parkinglot.security.repository;
 
 import com.parkinglot.security.model.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

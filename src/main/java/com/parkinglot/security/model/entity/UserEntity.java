@@ -1,8 +1,8 @@
 package com.parkinglot.security.model.entity;
 
 import com.parkinglot.model.entity.VehicleEntity;
-import com.parkinglot.model.enums.Role;
-import com.parkinglot.model.enums.TokenClaims;
+import com.parkinglot.security.model.enums.Role;
+import com.parkinglot.security.model.enums.TokenClaims;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

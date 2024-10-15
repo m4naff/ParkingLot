@@ -1,6 +1,6 @@
 package com.parkinglot.security.jwt;
 
-import com.parkinglot.model.enums.TokenClaims;
+import com.parkinglot.security.model.enums.TokenClaims;
 import com.parkinglot.security.CustomUserDetails;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
