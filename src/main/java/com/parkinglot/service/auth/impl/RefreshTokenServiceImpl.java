@@ -94,7 +94,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
      * @return the number of refresh tokens deleted
      */
     @Override
-    public int deleteByUser(String userId) {
+    public int deleteByUserId(String userId) {
         UserEntity userEntity = userService.findById(userId).orElseThrow(() -> new UsernameNotFoundException("Could not find user:" + userId));
        return refreshTokenRepository.deleteByUserEntity(userEntity);
     }

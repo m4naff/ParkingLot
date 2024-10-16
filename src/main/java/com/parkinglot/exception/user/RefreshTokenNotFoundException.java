@@ -1,0 +1,24 @@
+package com.parkinglot.exception.user;
+
+import com.parkinglot.exception.NotFoundException;
+
+import java.io.Serial;
+
+/**
+ * Exception class named {@link RefreshTokenNotFoundException} thrown when a refresh token is not found.
+ */
+public class RefreshTokenNotFoundException extends NotFoundException {
+
+    @Serial
+    private static final long serialVersionUID = 7719065931723096729L;
+
+    private static final String DEFAULT_MESSAGE = "The specified refresh token is not found";
+
+    public RefreshTokenNotFoundException(String message) {
+        super(message);
+    }
+
+    public RefreshTokenNotFoundException() {
+        super(DEFAULT_MESSAGE);
+    }
+}

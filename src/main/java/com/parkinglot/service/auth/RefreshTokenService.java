@@ -48,5 +48,5 @@ public interface RefreshTokenService {
      * @param userId the user ID
      * @return the number of refresh tokens deleted
      */
-    int deleteByUser(String userId);
+    int deleteByUserId(String userId);
 }
