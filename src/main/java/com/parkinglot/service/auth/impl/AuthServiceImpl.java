@@ -1,10 +1,12 @@
 package com.parkinglot.service.auth.impl;
 
+import com.parkinglot.exception.user.EmailAlreadyExistsException;
 import com.parkinglot.payload.request.auth.LoginRequest;
 import com.parkinglot.payload.request.auth.SignupRequest;
 import com.parkinglot.payload.request.auth.TokenRefreshRequest;
 import com.parkinglot.payload.response.auth.JWTResponse;
 import com.parkinglot.payload.response.auth.TokenRefreshResponse;
+import com.parkinglot.security.jwt.JwtUtils;
 import com.parkinglot.security.repository.UserRepository;
 import com.parkinglot.service.auth.AuthService;
 import com.parkinglot.service.auth.RefreshTokenService;
@@ -28,9 +30,19 @@ public class AuthServiceImpl implements AuthService {
 
     private final RefreshTokenService refreshTokenService;
 
+    private final JwtUtils jwtUtils;
+
+    /**
+     * Registers a new user.
+     *
+     * @param request the signup request
+     * @return the generated user ID
+     */
     @Override
     public String register(SignupRequest request) {
-        return "";
+        if (userRepository.existsByEmail(request.getEmail())) {
+           throw new EmailAlreadyExistsException(request.getEmail());
+        }
     }
 
     @Override
