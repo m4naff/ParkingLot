@@ -1,5 +1,6 @@
 package com.parkinglot.payload.request.auth;
 
+import com.parkinglot.security.model.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -34,5 +35,5 @@ public class SignupRequest {
     @Email
     private String email;
 
-    private String role;
+    private Role role;
 }
