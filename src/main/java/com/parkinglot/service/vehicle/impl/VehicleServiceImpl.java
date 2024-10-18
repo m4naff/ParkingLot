@@ -4,7 +4,12 @@ import com.parkinglot.model.Vehicle;
 import com.parkinglot.model.dto.request.vehicle.VehicleRequest;
 import com.parkinglot.model.dto.response.VehicleParkingDetailResponse;
 import com.parkinglot.model.entity.VehicleEntity;
+import com.parkinglot.model.mapper.park.ParkEntityToParkDetailResponse;
+import com.parkinglot.model.mapper.vehicle.VehicleEntityToVehicleMapper;
+import com.parkinglot.model.mapper.vehicle.VehicleRequestToVehicleMapper;
+import com.parkinglot.model.mapper.vehicle.VehicleToVehicleEntityMapper;
 import com.parkinglot.repository.VehicleRepository;
+import com.parkinglot.service.auth.UserService;
 import com.parkinglot.service.vehicle.VehicleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +22,20 @@ import org.springframework.stereotype.Service;
 public class VehicleServiceImpl implements VehicleService {
 
     private final VehicleRepository vehicleRepository;
+
+    private final UserService userService;
+
+    private final VehicleToVehicleEntityMapper vehicleToVehicleEntityMapper =
+            VehicleToVehicleEntityMapper.initialize();
+
+    private final ParkEntityToParkDetailResponse parkEntityToParkDetailResponse =
+            ParkEntityToParkDetailResponse.initialize();
+
+    private final VehicleRequestToVehicleMapper vehicleRequestToVehicleMapper =
+            VehicleRequestToVehicleMapper.initialize();
+
+    private final VehicleEntityToVehicleMapper vehicleEntityToVehicleMapper =
+            VehicleEntityToVehicleMapper.initialize();
 
     @Override
     public Vehicle assignVehicleToUser(String id, VehicleRequest vehicleRequest) {
