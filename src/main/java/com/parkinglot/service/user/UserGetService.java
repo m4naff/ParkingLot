@@ -1,6 +1,6 @@
 package com.parkinglot.service.user;
 
-import org.springframework.security.core.userdetails.User;
+import com.parkinglot.model.User;
 
 /**
  * Service interface named {@link UserGetService} for retrieving user information.
