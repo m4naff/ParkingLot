@@ -1,4 +1,4 @@
-package com.parkinglot.model.dto.request.priceLIst.impl;
+package com.parkinglot.service.priceList.impl;
 
 import com.parkinglot.model.Price;
 import com.parkinglot.model.PriceList;
