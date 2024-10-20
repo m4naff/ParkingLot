@@ -32,6 +32,13 @@ public class ParkingAreaEntity extends BaseEntity {
     private String name;
 
     @Column(
+            name = "LOCATION",
+            nullable = false,
+            unique = true
+    )
+    private String location;
+
+    @Column(
             name = "CAPACITY",
             nullable = false
     )
