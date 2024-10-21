@@ -1,7 +1,9 @@
 package com.parkinglot.service.parking_area.impl;
 
+import com.parkinglot.exception.parkingarea.ParkingAreaNotFoundException;
 import com.parkinglot.model.ParkingArea;
 import com.parkinglot.model.dto.request.parking_area.ParkingAreaUpdateRequest;
+import com.parkinglot.model.entity.ParkingAreaEntity;
 import com.parkinglot.model.mapper.parking_area.ParkingAreaEntityToParkingAreaMapper;
 import com.parkinglot.repository.ParkingAreaRepository;
 import com.parkinglot.service.parking_area.ParkingAreaUpdateService;
@@ -31,6 +33,14 @@ public class ParkingAreaUpdateServiceImpl implements ParkingAreaUpdateService {
     public ParkingArea parkingAreaUpdateByCapacity(
             final String parkingAreaId,
             ParkingAreaUpdateRequest parkingAreaUpdateRequest) {
+        final ParkingAreaEntity parkingAreaEntityToBeUpdate = parkingAreaRepository
+                .findById(parkingAreaId)
+                .orElseThrow(() -> new ParkingAreaNotFoundException("ParkingAreaNotFound with given id: " + parkingAreaId));
 
+        parkingAreaEntityToBeUpdate.setCapacity(parkingAreaUpdateRequest.getCapacity());
+
+        parkingAreaRepository.save(parkingAreaEntityToBeUpdate);
+
+        return parkingAreaEntityToParkingAreaMapper.map(parkingAreaEntityToBeUpdate);
     }
 }
