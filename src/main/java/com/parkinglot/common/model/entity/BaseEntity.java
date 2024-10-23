@@ -54,7 +54,7 @@ public abstract class BaseEntity {
 
     private String getUserFromAuthentication() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication != null && authentication.getPrincipal() instance of CustomUserDetails userDetails){
+        if(authentication != null && authentication.getPrincipal() instanceof CustomUserDetails userDetails){
             return userDetails.getUsername();
         }
         return "anonymousUser";
