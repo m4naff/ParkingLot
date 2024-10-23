@@ -19,4 +19,6 @@ target/
 *.iml
 *.ipr
 
-db/mysql.sock
+db/
+*.db
+*.sql
