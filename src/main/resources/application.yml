@@ -1,3 +1,25 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:mysql://${PARKING_LOT_DB_IP:localhost}:${PARKING_LOT_DB_PORT:3306}/parkinglot
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:password}
+
+  liquibase:
+    enabled: true
+    changeLog: "classpath:db/changelog/db.changelog-master.yaml"
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: true
 
 #JWT
 jwt:
